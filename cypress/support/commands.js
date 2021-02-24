@@ -29,3 +29,48 @@ Cypress.Commands.add('checkIfOptionsSelectedAre',(data)=>{
     // against the yielded list from ".invoke('val')"
     cy.get('#exampleForm\\.ControlSelect2').invoke('val').should('deep.equal', data )
 })
+Cypress.Commands.add('selectCheckbox',(data)=>{
+    cy.get('#inline-checkbox-'+data).click()
+})
+Cypress.Commands.add('checkIfSelectedCheckboxIs',(data)=>{
+    cy.get('#inline-checkbox-'+data).should('be.checked')
+})
+Cypress.Commands.add('selectDisabledCheckbox',(data)=>{
+    cy.get('#inline-checkbox-'+data).should('be.disabled')
+})
+Cypress.Commands.add('checkIfUnselectedCheckboxIs',(data)=>{
+    cy.get('#inline-checkbox-'+data).should('not.be.checked')
+})
+Cypress.Commands.add('selectRadiobutton',(data)=>{
+    cy.get('#inline-radio-'+data).click()
+})
+Cypress.Commands.add('checkIfSelectedRadiobuttonIs',(data)=>{
+    cy.get('#inline-radio-'+data).should('be.checked')
+})
+Cypress.Commands.add('selectDisabledRadiobutton',(data)=>{
+    cy.get('#inline-radio-'+data).should('be.disabled')
+})
+Cypress.Commands.add('checkIfUnselectedRadiobuttonIs',(data)=>{
+    cy.get('#inline-radio-'+data).should('not.be.checked')
+})
+Cypress.Commands.add('selectEsquerda',()=>{
+    cy.get('[aria-label="button_group"] > :nth-child(1)').click().should('to.match',':active')
+})
+Cypress.Commands.add('selectMeio',()=>{
+    cy.get('[aria-label="button_group"] > :nth-child(2)').click().should('to.have.focus')
+})
+Cypress.Commands.add('selectDireita',()=>{
+    cy.get('[aria-label="button_group"] > :nth-child(3)').click().should('to.have.focus')
+})
+Cypress.Commands.add('checkUnselectedEsquerda',(data)=>{
+    cy.get('[aria-label="button_group"] > :nth-child(1)').should('not.to.have.focus')
+})
+Cypress.Commands.add('checkUnselectedMeio',(data)=>{
+    cy.get('[aria-label="button_group"] > :nth-child(2)').should('not.to.have.focus')
+})
+Cypress.Commands.add('checkUnselectedDireita',(data)=>{
+    cy.get('[aria-label="button_group"] > :nth-child(3)').should('not.to.have.focus')
+})
+Cypress.Commands.add('submitFile',(data)=>{
+
+})
